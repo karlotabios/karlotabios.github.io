@@ -1,0 +1,144 @@
+<!Doctype html>
+<html>
+<head>
+	<title>CSIAN #2</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Abel|Fjalla+One" rel="stylesheet">
+</head>
+<body>
+	<h1>JEOPARDY MEHN</h1>
+	<div class="wrapper categories" id="bhoi">
+		<!-- <div class="cell">
+			lol
+		</div>
+		<div class="cell">
+			lol
+		</div>
+		<div class="cell">
+			lol
+		</div>
+		<div class="cell">
+			lol
+		</div>
+		<div class="cell">
+			lol
+		</div> -->
+	</div>
+	<div class="wrapper questions" id="lodi">
+		<!-- <div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			l2l
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div>
+		<div class="cell">
+			lel
+		</div> -->
+	</div>
+</body>
+<footer>
+	<script>
+		var qIDs = [];
+		var results = [];
+		var questions = [];
+		var madta = 5;
+		var url = [];
+		var xhr = new XMLHttpRequest();
+
+		function addCategories(cats) {
+			var div = document.createElement('div')
+			div.innerHTML = cats.title
+			div.classList.add('cell')
+			document.getElementById('bhoi').appendChild(div)
+		}
+		
+		function addQuestions(ques) {
+			for (var r = 0; r < madta; r++) {
+				for (var p = 0; p < ques.length; p++) {
+					var div = document.createElement('div')
+					div.innerHTML = '$' + ques[r].clues[p].question
+					div.onclick = function() {
+						div.innerHTML = ques[r].clues[p].question
+					}
+
+					div.classList.add('item')
+					document.getElementById('lodi').appendChild(div)
+				}
+			}
+		}
+		
+		function pushQuestion(id) {
+			var xhr2 = new XMLHttpRequest();
+			
+			xhr2.addEventListener('load', function() {
+				if(xhr2.status == 200) {
+					questions.push(JSON.parse(xhr2.response))
+					addQuestions(questions)
+				} else {
+					console.log(xhr.responseText)
+				}
+			})
+			xhr2.addEventListener('error', function() {
+				console.log(Error('Network Error'))
+			})
+			
+			xhr2.open('GET', 'http://jservice.io/api/category?id=' + id)
+			xhr2.send()
+		}
+		
+		xhr.addEventListener('load', function() {
+			if(xhr.status == 200) {
+				results = JSON.parse(xhr.response);
+				for(var i = 0; i < results.length; i++) {
+					qIDs.push(results[i].id)
+				}
+				
+				for(var j = 0; j < qIDs.length; j++) {
+					pushQuestion(qIDs[j])
+				}
+
+				for(var h = 0; h < results.length; h++) {
+					addCategories(results[h]);
+				}
+			} else {
+				console.log(xhr.responseText)
+			}
+		})
+
+		xhr.addEventListener('error', function() {
+			console.log(Error('Network Error'))
+		})
+		
+		xhr.open('GET', 'http://jservice.io/api/categories?count=5&offset=10')
+		
+		xhr.send()
+	</script>
+</footer>
+</html>

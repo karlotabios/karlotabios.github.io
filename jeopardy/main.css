@@ -1,0 +1,116 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+ margin:0;
+ padding:0;
+ border:0;
+ outline:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ font-family: 'Abel';
+}
+body {
+ line-height:1;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+ display:block;
+}
+nav ul {
+ list-style:none;
+}
+blockquote, q {
+ quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+ content:'';
+ content:none;
+}
+a {
+ margin:0;
+ padding:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ text-decoration: none;
+ color: black;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+h1 {
+	display: flex;
+	padding-top: 24px;
+	padding-bottom: 24px;
+	background-color: #76a9fc;
+	justify-content: center;
+	min-width: 1000px;
+}
+
+.wrapper {
+	background-color: #db006d;
+	/*padding-left: 24px;
+	padding-right: 24px;*/
+	/*padding-top: 24px;
+	padding-bottom: 24px;*/
+}
+
+.categories {
+	display: flex;
+	flex-direction: row;
+}
+
+.questions {
+	display: grid;
+	background-color: #e5f442;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-areas:
+	"question_1 question_6 question_11 question_16 question_21"
+	"question_2 question_7 question_12 question_17 question_22"
+	"question_3 question_8 question_13 question_18 question_23"
+	"question_4 question_9 question_14 question_19 question_24"
+	"question_5 question_10 question_15 question_20 question_25";
+	/*height: 100%;*/
+	/*grid-row-gap: 16px;
+	grid-column-gap: 16px;*/
+	justify-content: center;
+	align-items: center;
+
+}
+
+.cell {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+	min-width: 200px;
+/*	padding-top: 24px;
+	padding-bottom: 24px;*/
+	/*border: 2px solid black;*/
+}
+
+.categories .cell {
+	/*background-color: #cea182;*/
+	height: 100%;
+	min-width: 200px;
+}
+
+.questions .cell {
+	/*background-color: #a07558;*/
+	height: 100%;
+	width: 100%;
+}
