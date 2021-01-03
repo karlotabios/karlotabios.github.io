@@ -2,8 +2,6 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
-/*---------basic layout*/
-
 .highlighted-1 {
 	background-color: #ffc2ce;
 }
@@ -20,18 +18,13 @@ body {
 	background-color: #facae1;
 }
 
-/*---------spacing*/
-
-.body {
-	/*width: 600px;
-	max-width: 600px;*/
-	margin: 0 auto;
+.highlighted-5 {
+	background-color: #ffe3f0;
 }
-
-/*---------box model*/
 
 .body {
 	padding: 48px;
+	margin: 0;
 }
 
 .header {
@@ -48,21 +41,24 @@ body {
 	border-top: solid;
 }
 
-/*---------flexbox*/
-
 .flexbox {
 	display: flex;
 }
 
-.body {
-	margin: 0;
-}
-
 .sidebar {
 	max-width: 240px;
+	max-width: 300px;
+	text-align: center;
 }
 
-/*---------responsive*/
+.sidebar .body {
+	margin: 8px auto;
+}
+
+#console {
+	font-size: 36px;
+	font-weight: bold;
+}
 
 @media all and (max-width: 600px) {
 	.flexbox {
@@ -72,15 +68,4 @@ body {
 	.sidebar {
 		max-width: 100%;
 	}
-}
-
-/*---------images*/
-
-.sidebar {
-	max-width: 300px;
-	text-align: center;
-}
-
-.sidebar .body {
-	margin: 8px auto;
 }
