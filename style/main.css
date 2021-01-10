@@ -60,6 +60,10 @@ body {
 	font-weight: bold;
 }
 
+h1 {
+	margin-bottom: 12px;
+}
+
 @media all and (max-width: 600px) {
 	.flexbox {
 		flex-direction: column
